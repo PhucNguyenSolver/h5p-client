@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import AppHeader from "./components/AppHeader"
+import AppFooter from "./components/AppFooter"
+import { Route, Routes } from "react-router-dom"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <AppHeader />
+            <div
+                style={{
+                    backgroundColor: "pink",
+                    flexDirection: "column-reverse",
+                    justifyContent: "space-between",
+                }}
+                flex={1}
+            >
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="demos" element={<Demos />} />
+                    <Route path="pricing" element={<Pricing />} />
+                    <Route path="integrations" element={<Integrations />} />
+                </Routes>
+                <AppFooter flex={1} />
+            </div>
+        </>
+    )
 }
 
-export default App;
+const Home = () => <div>Home</div>
+const Pricing = () => <div>pricing</div>
+const Integrations = () => <div>integrations</div>
+const Demos = () => <div>demos</div>
+
+export default App
